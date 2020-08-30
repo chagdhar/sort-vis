@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### RUN APP ONLINE
+go to the link [RUN APP](https://chagdhar.github.io/sort-vis).
+
 ## Available Scripts
 
 In the project directory, you can run:
