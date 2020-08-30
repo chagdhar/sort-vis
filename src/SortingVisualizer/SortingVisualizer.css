@@ -1,0 +1,30 @@
+.container {
+  position: absolute;
+  bottom: 10%;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  
+}
+
+.bar {
+  position: relative;
+  width: 6px;
+  display: inline-block;
+  margin: 0 3px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+body{
+  background-color: navajowhite;
+  #background-color: indigo;
+  text-align: center;
+}
+
+.menu {
+  height: 10%;
+  width: 100%;
+  background-color: black;
+}
