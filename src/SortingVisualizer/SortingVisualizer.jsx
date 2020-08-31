@@ -8,12 +8,20 @@ var MAX_SIZE = 500;
 const PRIMARY_COLOR = "red";
 const SECONDRY_COLOR = "indigo";
 
+//const marginSize = 10; // in pixels ;; change margin: field down in the bar div 
+//const width = Math.floor((window.innerWidth / NO_OF_BARS)/3); //- 2*marginSize); ?? I want marginsize = width of eachbar 
+
+const width = setWidth(NO_OF_BARS);
+
+//wrote function as i need to set later
+
 export default class Sorter extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             array: [],
+            barnum: NO_OF_BARS,
         };
     }
 
@@ -25,10 +33,27 @@ export default class Sorter extends React.Component {
     resetArray() {
         const array = [];
         
-        for (let i = 0; i < NO_OF_BARS; i++) {
+        for (let i = 0; i < this.state.barnum; i++) {
             array[i] = randomInt(MIN_SIZE, MAX_SIZE);
         }
         this.setState({array});
+    }
+
+    bubbleSort() {
+        var {array} = this.state;
+        var {barnum} = this.state;
+        const bars = document.getElementsByClassName("bar");
+
+        for (let i = barnum; i > 0; i--) {
+            for(var j=0; j < i-1; j++) {
+                setTimeout((j)=>{
+                    bars[j].style.backgroundColor = SECONDRY_COLOR;
+                    bars[j+1].style.backgroundColor = SECONDRY_COLOR;
+                },1000);
+               
+
+            }
+        }
     }
 
     render() {
@@ -44,16 +69,24 @@ export default class Sorter extends React.Component {
                       style={{
                         backgroundColor: PRIMARY_COLOR,
                         height: `${value}px`,
+                        width: `${width}px`,
+                        margin: `${width}px`,
+                        borderRadius: `${width}px`,
                       }}></div>
                   ))}
                 </div>
                 <div className="menu">
-                  <button onClick={() => this.resetArray()}>Generate New Array</button>
+                    <button class="btn" onClick={() => this.resetArray()}>Generate New Array</button>
+                    <button class="btn" onClick={()=>(this.bubbleSort())}>BUBBLE SORT</button>
                 </div>
             </>
         );
     }
 } 
+
+function setWidth(NO_OF_BARS) {
+    return(Math.floor((window.innerWidth / NO_OF_BARS)/3));
+}
 
 function randomInt(min, max) {
     return Math.floor((Math.random()*(max-min+1)) + min);
