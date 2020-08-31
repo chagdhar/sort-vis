@@ -2,17 +2,20 @@ import React from 'react';
 import './SortingVisualizer.css';
 
 var NO_OF_BARS = 50;
-var MIN_SIZE = 50;
-var MAX_SIZE = 500;
 
-const PRIMARY_COLOR = "red";
+const PRIMARY_COLOR = "indianred";
 const SECONDRY_COLOR = "indigo";
+
+// need to set the MIN and MAX sizes wrt the screen
+const winHeight = window.innerHeight;
+const MIN_SIZE = Math.floor(winHeight*0.1);
+const MAX_SIZE = Math.floor(winHeight*0.85);
+
 
 //const marginSize = 10; // in pixels ;; change margin: field down in the bar div 
 //const width = Math.floor((window.innerWidth / NO_OF_BARS)/3); //- 2*marginSize); ?? I want marginsize = width of eachbar 
 
 const width = setWidth(NO_OF_BARS);
-
 //wrote function as i need to set later
 
 export default class Sorter extends React.Component {
